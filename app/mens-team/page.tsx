@@ -1,29 +1,37 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { clubLogos } from "@/data/club-logos";
+import FixtureCard from "@/components/FixtureCard";
 
 const fixtures = [
   {
-    opponent: "Western Sydney Wanderers",
-    logo: clubLogos.westernSydney,
+    homeTeam: "Chelsea",
+    awayTeam: "Western Sydney Wanderers",
+    homeLogo: "https://i.postimg.cc/yNs5vXxg/CHELSEA.png",
+    awayLogo: "https://i.postimg.cc/65fBx2Vt/Western-Sydney-Wanderers-FC.jpg",
     date: "28 July 2026",
     location: "Sydney, Australia",
   },
   {
-    opponent: "Tottenham Hotspur",
-    logo: clubLogos.tottenham,
+    homeTeam: "Chelsea",
+    awayTeam: "Tottenham Hotspur",
+    homeLogo: "https://i.postimg.cc/yNs5vXxg/CHELSEA.png",
+    awayLogo: "https://i.postimg.cc/SQD8GDyz/TOTTENHAM-HOTSPUR.png",
     date: "1 August 2026",
     location: "Sydney, Australia",
   },
   {
-    opponent: "Juventus",
-    logo: clubLogos.juventus,
+    homeTeam: "Chelsea",
+    awayTeam: "Juventus",
+    homeLogo: "https://i.postimg.cc/yNs5vXxg/CHELSEA.png",
+    awayLogo: "https://i.postimg.cc/y8h4kJWg/juventus.jpg",
     date: "5 August 2026",
     location: "Hong Kong",
   },
   {
-    opponent: "AC Milan",
-    logo: clubLogos.acMilan,
+    homeTeam: "Chelsea",
+    awayTeam: "AC Milan",
+    homeLogo: "https://i.postimg.cc/yNs5vXxg/CHELSEA.png",
+    awayLogo: "https://i.postimg.cc/pXJPMhQv/AC-Milan.jpg",
     date: "8 August 2026",
     location: "Jakarta, Indonesia",
   },
@@ -52,34 +60,17 @@ export default function MensTeamPage() {
             2026/27 Pre-Season Fixtures
           </h2>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             {fixtures.map((fixture, index) => (
-              <div
+              <FixtureCard
                 key={index}
-                className="border border-slate-200 rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
-              >
-                <div className="flex items-center gap-5">
-                  <img
-                    src={fixture.logo}
-                    alt={fixture.opponent}
-                    className="w-20 h-20 object-contain rounded-full border border-slate-200"
-                  />
-
-                  <div>
-                    <h3 className="text-2xl font-black text-yellow-700">
-                      Chelsea vs {fixture.opponent}
-                    </h3>
-
-                    <p className="text-slate-600 mt-2">
-                      {fixture.location}
-                    </p>
-                  </div>
-                </div>
-
-                <span className="bg-blue-950 text-yellow-500 px-5 py-3 rounded-xl font-bold text-center">
-                  {fixture.date}
-                </span>
-              </div>
+                homeTeam={fixture.homeTeam}
+                awayTeam={fixture.awayTeam}
+                homeLogo={fixture.homeLogo}
+                awayLogo={fixture.awayLogo}
+                date={fixture.date}
+                location={fixture.location}
+              />
             ))}
           </div>
         </div>
